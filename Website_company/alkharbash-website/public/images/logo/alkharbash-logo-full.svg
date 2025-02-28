@@ -1,0 +1,15 @@
+<svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left side: English name -->
+  <text x="10" y="85" font-family="Arial, sans-serif" font-weight="900" font-size="48" fill="#000000">AL KHARBASH</text>
+  <text x="10" y="130" font-family="Arial, sans-serif" font-size="26" fill="#000000">INVESTMENT COMPANY L.L.C.</text>
+  
+  <!-- Right side: Arabic name -->
+  <text x="790" y="85" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#000000" text-anchor="end">شركة الخرباش</text>
+  <text x="790" y="130" font-family="Arial, sans-serif" font-size="30" fill="#000000" text-anchor="end">للإستثمار ذ.م.م</text>
+  
+  <!-- Center: Blue wave/swoosh symbol -->
+  <path d="M600 80 C580 20, 520 40, 510 70 C500 100, 460 130, 430 110" fill="none" stroke="#3370C2" stroke-width="18" stroke-linecap="round" />
+  
+  <!-- Blue dot above the wave -->
+  <circle cx="600" cy="30" r="15" fill="#3370C2" />
+</svg> 

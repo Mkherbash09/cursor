@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Variables */
+:root {
+  --foreground-rgb: 17, 24, 39;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 250, 250, 250;
+  --primary-color: 107, 114, 128; /* gray-500 */
+  --secondary-color: 156, 163, 175; /* gray-400 */
+  --accent-color: 209, 213, 219; /* gray-300 */
+  --success-color: 16, 185, 129; /* emerald-500 */
+  --warning-color: 245, 158, 11; /* amber-500 */
+  --error-color: 239, 68, 68; /* red-500 */
+  --border-radius: 0.25rem;
+  --transition-speed: 0.3s;
+  --glow-color: rgba(107, 114, 128, 0.3);
+}
+
+/* Base Styles */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-feature-settings: "salt", "ss01", "ss02", "ss03";
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: rgb(17, 24, 39); /* gray-900 */
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: rgb(55, 65, 81); /* gray-700 */
+}
+
+/* Additional styles for the Al Kharbash website */
+.prose {
+  max-width: 65ch;
+  color: inherit;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose h2 {
+  color: inherit;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+/* Placeholder image styles */
+.placeholder-image {
+  background-color: rgba(30, 30, 50, 0.8);
+  background-image: linear-gradient(45deg, rgba(40, 40, 60, 0.8) 25%, transparent 25%, transparent 75%, rgba(40, 40, 60, 0.8) 75%, rgba(40, 40, 60, 0.8)), 
+                    linear-gradient(45deg, rgba(40, 40, 60, 0.8) 25%, transparent 25%, transparent 75%, rgba(40, 40, 60, 0.8) 75%, rgba(40, 40, 60, 0.8));
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.light .placeholder-image {
+  background-color: rgba(240, 240, 250, 0.8);
+  background-image: linear-gradient(45deg, rgba(230, 230, 240, 0.8) 25%, transparent 25%, transparent 75%, rgba(230, 230, 240, 0.8) 75%, rgba(230, 230, 240, 0.8)), 
+                    linear-gradient(45deg, rgba(230, 230, 240, 0.8) 25%, transparent 25%, transparent 75%, rgba(230, 230, 240, 0.8) 75%, rgba(230, 230, 240, 0.8));
+}
+
+/* Fix for light mode text visibility */
+.light .prose {
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Fix for heading contrast in light mode */
+.light .prose h2 {
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Fix for paragraph contrast in light mode */
+.light .prose p {
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Component Layer */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded font-medium transition-colors duration-300 focus:outline-none;
+  }
+  
+  .btn-primary {
+    @apply border border-gray-300 text-gray-800 hover:bg-gray-50 hover:shadow-sm;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200 border border-gray-200;
+  }
+
+  .card {
+    @apply bg-white shadow-sm border border-gray-100 rounded-md overflow-hidden transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-md border-gray-200;
+  }
+
+  .gradient-border {
+    @apply relative overflow-hidden;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, rgb(var(--primary-color)), rgb(var(--secondary-color)));
+    z-index: 10;
+  }
+}
+
+/* Utilities Layer */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-bottom {
+    animation: slideInBottom 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+  
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px var(--glow-color);
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .light .glass-effect {
+    @apply bg-gray-900/5 backdrop-blur-md border border-gray-200;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
